@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    private int wave = 1;
+    public int wave = 1;
 
     const float time = 120f;    // 한 웨이브 시간
 
@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public bool isBoss { get; set; }
 
 
+    public int money { get; set; }
 
 
 

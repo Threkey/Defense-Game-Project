@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
 
     private Vector3 spawnPos;
 
-    private float spawnInterval = 0.5f;
+    private float spawnInterval = 3.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,16 +31,24 @@ public class Spawner : MonoBehaviour
 
     IEnumerator coSpawnMonster()
     {
-        while (gm.isWave)
+        while (true)
         {
-            if (gm.isBoss)
-                Instantiate(monsterBoss, spawnPos, Quaternion.identity);
-            else
+            //if(gm.isWave)
+            if(true)
             {
-                Instantiate(monsterRat, spawnPos, Quaternion.identity);
-                Instantiate(monsterRat, spawnPos, Quaternion.identity);
+                //if (gm.isBoss)
+                if(false)
+                    Instantiate(monsterBoss, spawnPos, Quaternion.identity);
+                else
+                {
+                    Instantiate(monsterRat, spawnPos, monsterRat.transform.rotation);
+                    Instantiate(monsterBat, spawnPos, monsterBat.transform.rotation);
+                }
+                yield return new WaitForSeconds(spawnInterval);
             }
-            yield return new WaitForSeconds(spawnInterval);
+            else
+                yield return null;
+
         }
     }
 }
