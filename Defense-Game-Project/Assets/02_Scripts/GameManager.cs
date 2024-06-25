@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,8 +8,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public int wave = 1;
-
-    const float time = 120f;    // 한 웨이브 시간
 
     public bool isWave { get; set; }
     public bool isMerchant { get; set; }
@@ -18,12 +17,39 @@ public class GameManager : MonoBehaviour
     public int money { get; set; }
 
 
+    // 플레이어 능력치
+    private float attackSpeed = 1.0f;
+
+    private int attackDamage = 2;
+
+    private float attackRange = 12.0f;
+
+    private int hp;
+
+    public const int maxHp = 100;
 
 
+    public float AttackSpeed
+    {
+        get { return attackSpeed; }
+    }
 
+    public int AttackDamage
+    {
+        get { return attackDamage; }
+    }
 
+    public float AttackRange
+    {
+        get { return attackRange; }
+    }
 
+    public int Hp
+    {
+        get { return hp; }
+    }
 
+    // 싱글톤
     private void Awake()
     {
         if (instance == null)
@@ -32,6 +58,11 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
 
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void Start()
+    {
+        hp = maxHp;
     }
 
 

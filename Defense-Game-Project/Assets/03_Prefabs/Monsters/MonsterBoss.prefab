@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 2001719498225726937}
   m_Layer: 0
   m_Name: MonsterBoss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

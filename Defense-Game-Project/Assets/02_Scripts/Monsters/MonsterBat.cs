@@ -19,7 +19,7 @@ public class MonsterBat : MonoBehaviour
     {
         gm = GameManager.instance;
 
-        sliderHp = transform.Find("SliderBatHp").GetComponent<Slider>();
+        sliderHp = transform.Find("Canvas").Find("SliderBatHp").GetComponent<Slider>();
 
         maxHp = gm.wave * 7f;
         hp = maxHp;
@@ -36,6 +36,17 @@ public class MonsterBat : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "TilemapObject")
-            Destroy(gameObject);
+            StartCoroutine(coDestroy());
+    }
+
+    IEnumerator coDestroy()
+    {
+        speed = 0f;
+        sliderHp.gameObject.SetActive(false);
+        Animator anim = GetComponent<Animator>();
+        anim.SetTrigger("Death");
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 }
+

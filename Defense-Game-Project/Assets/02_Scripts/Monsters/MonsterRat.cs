@@ -20,7 +20,7 @@ public class MonsterRat : MonoBehaviour
     {
         gm = GameManager.instance;
 
-        sliderHp = transform.Find("SliderRatHp").GetComponent<Slider>();
+        sliderHp = transform.Find("Canvas").Find("SliderRatHp").GetComponent<Slider>();
 
         maxHp = gm.wave * 10f;
         hp = maxHp;
@@ -37,6 +37,16 @@ public class MonsterRat : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "TilemapObject")
-            Destroy(gameObject);
+            StartCoroutine(coDestroy());
+    }
+
+    IEnumerator coDestroy()
+    {
+        speed = 0f;
+        sliderHp.gameObject.SetActive(false);
+        Animator anim = GetComponent<Animator>();
+        anim.SetTrigger("Death");
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 }

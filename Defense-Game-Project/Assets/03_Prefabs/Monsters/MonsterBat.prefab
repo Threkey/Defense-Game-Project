@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 6125574278380748377}
   m_Layer: 0
   m_Name: MonsterBat
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +271,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 5
+  m_Constraints: 7
 --- !u!114 &6125574278380748377
 MonoBehaviour:
   m_ObjectHideFlags: 0
