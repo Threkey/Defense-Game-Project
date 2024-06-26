@@ -42,7 +42,7 @@ public class Spawner : MonoBehaviour
                 else
                 {
                     Instantiate(monsterRat, spawnPos, monsterRat.transform.rotation);
-                    //Instantiate(monsterBat, spawnPos, monsterBat.transform.rotation);
+                    Instantiate(monsterBat, spawnPos, monsterBat.transform.rotation);
                 }
                 yield return new WaitForSeconds(spawnInterval);
             }

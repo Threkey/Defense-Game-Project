@@ -28,12 +28,20 @@ public class Timer : MonoBehaviour
 
         if (gm.isWave)
         {
+            if (gm.wave == 5)
+            {
+                gm.isBoss = true;
+            }
+
             Debug.Log("isWave");
             currentTime -= Time.deltaTime;
             if (currentTime <= 0f)
             {
                 Debug.Log("currenttime<=0");
                 gm.isWave = false;
+                gm.wave++;
+                gm.isMerchant = true;
+                
                 currentTime = timeLimit;
             }
             min = (int)(currentTime / 60.0f);

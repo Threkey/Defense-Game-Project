@@ -36,7 +36,7 @@ public class MonsterRat : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "TilemapObject")
+        if (collision.gameObject.name == "TilemapObject" || collision.gameObject.name.Contains("Skill"))
             StartCoroutine(coDestroy());
     }
 

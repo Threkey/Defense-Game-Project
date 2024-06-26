@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     public const int maxHp = 100;
 
+    private float skillCooldownReduction = 0.0f;
+
 
     public float AttackSpeed
     {
@@ -49,6 +51,11 @@ public class GameManager : MonoBehaviour
         get { return hp; }
     }
 
+    public float SkillColldownReduction
+    {
+        get { return skillCooldownReduction; }
+    }
+
     // ΩÃ±€≈Ê
     private void Awake()
     {
@@ -64,6 +71,4 @@ public class GameManager : MonoBehaviour
     {
         hp = maxHp;
     }
-
-
 }
