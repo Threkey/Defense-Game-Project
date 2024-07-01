@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour
 
     private float attackRange = 12.0f;
 
-    private int hp;
+    private float hp;
 
-    public const int maxHp = 100;
+    public const float maxHp = 100f;
 
     private float skillCooldownReduction = 0.0f;
 
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         get { return attackRange; }
     }
 
-    public int Hp
+    public float Hp
     {
         get { return hp; }
     }

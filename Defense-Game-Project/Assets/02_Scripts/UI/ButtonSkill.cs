@@ -64,8 +64,6 @@ public class ButtonSkill : MonoBehaviour
             imageSkill1.fillAmount = currentSkill1Colldown / (skillCooldown - (skillCooldown * gm.SkillColldownReduction));
 
             yield return new WaitForSeconds(0.01f);
-
-            Debug.Log(currentSkill1Colldown);
         }
 
         btnSkill1.interactable = true;

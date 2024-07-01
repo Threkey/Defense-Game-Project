@@ -19,11 +19,8 @@ public class BackgroundRoll : MonoBehaviour
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
 
-        Debug.Log(width);
-
         if(transform.position.x <= -width)
         {
-            Debug.Log("if");
             transform.position = Vector3.right * width;
         }
     }

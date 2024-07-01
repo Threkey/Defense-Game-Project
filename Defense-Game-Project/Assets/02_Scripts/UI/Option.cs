@@ -14,20 +14,23 @@ public class Option : MonoBehaviour
     void Start()
     {
         // 컴포넌트 할당
-        btnQuitGame = transform.Find("ImageOption").Find("ButtonQuitGame").GetComponent<Button>();
+        try
+        {
+            btnQuitGame = transform.Find("ImageOption").Find("ButtonQuitGame").GetComponent<Button>();
+        }
+        catch (System.NullReferenceException e)
+        {
+            Debug.Log(e.Message);
+        }
+
         btnCancel = transform.Find("ImageOption").Find("ButtonCancel").GetComponent<Button>();
         sliderBgm = transform.Find("ImageOption").Find("SliderBgm").GetComponent<Slider>();
         sliderSfx = transform.Find("ImageOption").Find("SliderSfx").GetComponent<Slider>();
 
         // 버튼 이벤트
-        btnQuitGame.onClick.AddListener(QuitGame);
+        if(btnQuitGame != null)
+            btnQuitGame.onClick.AddListener(QuitGame);
         btnCancel.onClick.AddListener(Cancel);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void QuitGame()
